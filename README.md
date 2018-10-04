@@ -1,2 +1,5 @@
-# dungeon-generators
-Some dungeon generation algorithms
+# Dungeon Generators
+
+## License
+
+[MIT License](LICENSE) (C) Tobi van Bronswijk
