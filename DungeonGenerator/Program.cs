@@ -11,7 +11,7 @@ namespace Game
             Console.WindowWidth = 144;
             Console.WindowHeight = 48;
 
-            var generator = new DungeonGenerator();
+            var generator = new DungeonGenerator(new SimpleGeneratorStrategy(12));
             var dungeon = generator.Generate(Console.WindowWidth, Console.WindowHeight);
 
             Draw(dungeon);
