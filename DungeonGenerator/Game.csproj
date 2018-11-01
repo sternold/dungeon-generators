@@ -46,6 +46,8 @@
     <Compile Include="Dungeon.cs" />
     <Compile Include="Generator\DungeonGenerator.cs" />
     <Compile Include="Generator\Strategy\BSPGeneratorStrategy.cs" />
+    <Compile Include="Generator\Strategy\Models\Coord.cs" />
+    <Compile Include="Generator\Strategy\Models\Rectangle.cs" />
     <Compile Include="Generator\Strategy\NaturalDungeonStrategy.cs" />
     <Compile Include="Generator\Strategy\SimpleGeneratorStrategy.cs" />
     <Compile Include="Generator\Strategy\EmptyGeneratorStrategy.cs" />
