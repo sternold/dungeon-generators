@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Generator.Strategy
 {
-    class EmptyGeneratorStrategy : IStrategy
+    public class EmptyGeneratorStrategy : IStrategy
     {
         public Dungeon Generate(int w, int h)
         {

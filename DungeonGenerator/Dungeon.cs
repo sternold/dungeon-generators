@@ -12,8 +12,8 @@ namespace Game
 
         public char this[int x, int y]
         {
-            get { return _tiles[(x * Height) + y]; }
-            set { _tiles[(x * Height) + y] = value; }
+            get => _tiles[(x * Height) + y];
+            set => _tiles[(x * Height) + y] = value;
         }
 
         public Dungeon(int width, int height)
@@ -25,8 +25,8 @@ namespace Game
 
         public IEnumerator<char> GetEnumerator()
         {
-            for (int x = 0; x < Width; x++)
-                for (int y = 0; y < Height; y++)
+            for (var x = 0; x < Width; x++)
+                for (var y = 0; y < Height; y++)
                     yield return this[x, y];
         }
 

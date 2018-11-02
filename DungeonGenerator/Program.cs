@@ -18,11 +18,11 @@ namespace Game
             Console.Read();
         }
 
-        public static void Draw(Dungeon dungeon)
+        private static void Draw(Dungeon dungeon)
         {
-            for(int y = 0; y < dungeon.Height; y++)
+            for(var y = 0; y < dungeon.Height; y++)
             {
-                for (int x = 0; x < dungeon.Width; x++)
+                for (var x = 0; x < dungeon.Width; x++)
                 {
                     Console.CursorTop = y;
                     Console.CursorLeft = x;

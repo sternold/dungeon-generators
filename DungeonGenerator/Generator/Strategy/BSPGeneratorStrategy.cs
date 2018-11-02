@@ -6,9 +6,9 @@ namespace Game.Generator.Strategy
     {
         private readonly int _minimumSize;
 
-        public BSPGeneratorStrategy(int MinimumSize)
+        public BSPGeneratorStrategy(int minimumSize)
         {
-            this._minimumSize = MinimumSize;
+            this._minimumSize = minimumSize;
         }
 
         public Dungeon Generate(int w, int h)

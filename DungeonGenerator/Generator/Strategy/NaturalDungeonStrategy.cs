@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game.Generator.Strategy
 {
-    class NaturalDungeonStrategy : IStrategy
+    public class NaturalDungeonStrategy : IStrategy
     {
-        private readonly int iterations;
+        private readonly int _iterations;
 
         public NaturalDungeonStrategy(int iterations)
         {
-            this.iterations = iterations;
+            this._iterations = iterations;
         }
 
         public Dungeon Generate(int w, int h)
@@ -20,13 +20,13 @@ namespace Game.Generator.Strategy
             var rand = new Random();
             var dungeon = new Dungeon(w, h);
 
-            for (int x = 0; x < w; x++)
-                for (int y = 0; y < h; y++)
+            for (var x = 0; x < w; x++)
+                for (var y = 0; y < h; y++)
                     dungeon[x, y] = '#';
 
-            int prevX = rand.Next(0, w);
-            int prevY = rand.Next(0, h);
-            for(int i = 0; i < iterations; i++)
+            var prevX = rand.Next(0, w);
+            var prevY = rand.Next(0, h);
+            for(var i = 0; i < _iterations; i++)
             {
                 dungeon[prevX, prevY] = '.';
                 switch (rand.Next(4))
