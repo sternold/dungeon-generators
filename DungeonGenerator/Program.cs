@@ -10,12 +10,20 @@ namespace Game
         {
             Console.WindowWidth = 144;
             Console.WindowHeight = 48;
-            
-            var generator = new DungeonGenerator { Strategy = new SimpleGeneratorStrategy(12) };
-            
-            var dungeon = generator.Generate(Console.WindowWidth, Console.WindowHeight);
-            Draw(dungeon);
-            Console.Read();
+
+            var generator = new DungeonGenerator();
+            while (true)
+            {
+                generator.Strategy = new EmptyGeneratorStrategy();
+                Draw(generator.Generate(Console.WindowWidth, Console.WindowHeight));
+                Console.ReadLine();
+                generator.Strategy = new NaturalDungeonStrategy(1024);
+                Draw(generator.Generate(Console.WindowWidth, Console.WindowHeight));
+                Console.ReadLine();
+                generator.Strategy = new SimpleGeneratorStrategy(16);
+                Draw(generator.Generate(Console.WindowWidth, Console.WindowHeight));
+                Console.ReadLine(); 
+            }
         }
 
         private static void Draw(Dungeon dungeon)
