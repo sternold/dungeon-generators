@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Generator.Strategy.Models
+﻿namespace Game.Generator.Strategy.Models
 {
     public class Coord
     {
@@ -13,8 +7,8 @@ namespace Game.Generator.Strategy.Models
 
         public Coord(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
 
         public Coord Offset(Coord other)

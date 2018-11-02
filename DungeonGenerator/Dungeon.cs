@@ -18,9 +18,9 @@ namespace Game
 
         public Dungeon(int width, int height)
         {
-            this.Width = width;
-            this.Height = height;
-            this._tiles = new char[width * height];
+            Width = width;
+            Height = height;
+            _tiles = new char[width * height];
         }
 
         public IEnumerator<char> GetEnumerator()

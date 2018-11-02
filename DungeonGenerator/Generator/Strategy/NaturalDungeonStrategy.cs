@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game.Generator.Strategy
 {
@@ -12,7 +8,7 @@ namespace Game.Generator.Strategy
 
         public NaturalDungeonStrategy(int iterations)
         {
-            this._iterations = iterations;
+            _iterations = iterations;
         }
 
         public Dungeon Generate(int w, int h)

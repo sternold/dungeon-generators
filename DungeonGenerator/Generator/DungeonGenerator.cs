@@ -1,9 +1,4 @@
 ﻿using Game.Generator.Strategy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game.Generator
 {
@@ -11,23 +6,20 @@ namespace Game.Generator
     {
         private IStrategy _strategy;
 
+        public IStrategy Strategy
+        {
+            set => _strategy = value;
+        }
+
         public DungeonGenerator() : this(new EmptyGeneratorStrategy())
         {
         }
 
         public DungeonGenerator(IStrategy strategy)
         {
-            this._strategy = strategy;
+            _strategy = strategy;
         }
 
-        public void SetGenerator(IStrategy strategy)
-        {
-            this._strategy = strategy;
-        }
-
-        public Dungeon Generate(int w, int h)
-        {
-            return _strategy.Generate(w, h);
-        }
+        public Dungeon Generate(int w, int h) => _strategy.Generate(w, h);
     }
 }

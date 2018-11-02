@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Generator.Strategy.Models
+﻿namespace Game.Generator.Strategy.Models
 {
     public class Rectangle
     {
@@ -26,27 +20,27 @@ namespace Game.Generator.Strategy.Models
 
         public Rectangle(int x, int y, int w, int h)
         {
-            this.X = x;
-            this.Y = y;
-            this.W = w;
-            this.H = h;
+            X = x;
+            Y = y;
+            W = w;
+            H = h;
         }
 
         public bool Intersects(Rectangle other)
         {
-            return this.X1 < other.X2
-                && this.Y1 < other.Y2
-                && other.X1 < this.X2
-                && other.Y1 < this.Y2;
+            return X1 < other.X2
+                && Y1 < other.Y2
+                && other.X1 < X2
+                && other.Y1 < Y2;
         }
 
         public override bool Equals(object obj)
         {
             var other = obj as Rectangle;
-            return this.X == other?.X
-                && this.Y == other?.Y
-                && this.W == other?.W
-                && this.H == other?.H;
+            return X == other?.X
+                && Y == other?.Y
+                && W == other?.W
+                && H == other?.H;
         }
     }
 }
