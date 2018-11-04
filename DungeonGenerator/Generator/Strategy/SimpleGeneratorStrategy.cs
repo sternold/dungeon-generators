@@ -1,36 +1,36 @@
 ﻿using Game.Generator.Strategy.Models;
 using System;
 using System.Collections.Generic;
+using Game.Models;
 
 namespace Game.Generator.Strategy
 {
     public class SimpleGeneratorStrategy : IStrategy
     {
-        private const int Scale = 12;
-        private readonly int _roomsSize;
+        private readonly Random _rand = new Random();
+        
+        private readonly int _scale;
+        private readonly int _roomCount;
 
-        public SimpleGeneratorStrategy(int roomsSize)
+        public SimpleGeneratorStrategy(int roomCount = 8, int scale = 16)
         {
-            _roomsSize = roomsSize;
+            _roomCount = roomCount;
+            _scale = scale;
+
         }
 
         public Dungeon Generate(int w, int h)
         {
-            var rand = new Random();
-
-            var dungeon = new Dungeon(w, h);
-            for (var x = 0; x < w; x++)
-            for (var y = 0; y < h; y++)
-                dungeon[x, y] = '#';
+            var dungeon = new Dungeon(w, h).Fill('#');
 
             var rooms = new List<Rectangle>();
-            for (var i = 0; i < _roomsSize; i++)
+            for (var i = 0; i < _roomCount; i++)
             {
                 var room = new Rectangle(
-                    rand.Next(0, w - Scale),
-                    rand.Next(0, h - Scale),
-                    rand.Next(4, Scale),
-                    rand.Next(4, Scale)
+                    _rand.Next(0, w - _scale),
+                    _rand.Next(0, h - _scale),
+                    _rand.Next(4, _scale),
+                    _rand.Next(4, _scale)
                 );
 
                 var skip = false;
@@ -56,7 +56,7 @@ namespace Game.Generator.Strategy
 
                 var newCenter = room.Center;
                 var oldCenter = rooms[i - 1].Center;
-                if (rand.Next(0, 1) == 0)
+                if (_rand.Next(0, 1) == 0)
                 {
                     for (var x = Math.Min(oldCenter.X, newCenter.X); x < Math.Max(oldCenter.X, newCenter.X); x++)
                         dungeon[x, newCenter.Y] = '.';

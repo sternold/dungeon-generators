@@ -1,43 +1,51 @@
 ﻿using System;
+using Game.Models;
 
 namespace Game.Generator.Strategy
 {
     public class NaturalDungeonStrategy : IStrategy
     {
+        private readonly Random _rand = new Random();
+        
         private readonly int _iterations;
-
-        public NaturalDungeonStrategy(int iterations)
+        
+        public NaturalDungeonStrategy(int iterations = 1024)
         {
             _iterations = iterations;
         }
 
         public Dungeon Generate(int w, int h)
         {
-            var rand = new Random();
-            var dungeon = new Dungeon(w, h);
+            var dungeon = new Dungeon(w, h).Fill('#');
 
-            for (var x = 0; x < w; x++)
-                for (var y = 0; y < h; y++)
-                    dungeon[x, y] = '#';
-
-            var prevX = rand.Next(0, w);
-            var prevY = rand.Next(0, h);
+            var x = _rand.Next(0, w);
+            var y = _rand.Next(0, h);
             for(var i = 0; i < _iterations; i++)
             {
-                dungeon[prevX, prevY] = '.';
-                switch (rand.Next(4))
+                if (dungeon[x, y] == '.') 
+                    i--;
+                
+                dungeon[x, y] = '.';
+                switch (_rand.Next(4))
                 {
                     case 0:
-                        prevX = prevX - 1 >= 0 ? prevX - 1 : prevX;
+                        if (--x < 0)
+                            x++;
                         break;
                     case 1:
-                        prevX = prevX + 1 < w ? prevX + 1 : prevX;
+                        if (++x >= w)
+                            x--;
                         break;
                     case 2:
-                        prevY = prevY - 1 >= 0 ? prevY - 1 : prevY;
+                        if (--y < 0)
+                            y++;
                         break;
                     case 3:
-                        prevY = prevY + 1 < h ? prevY + 1 : prevY;
+                        if (++y >= h)
+                            y--;
+                        break;
+                    default:
+                        i--;
                         break;
                 }
             }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Game
+namespace Game.Models
 {
     public class Dungeon : IEnumerable<char>
     {
@@ -23,11 +23,22 @@ namespace Game
             _tiles = new char[width * height];
         }
 
+        public Dungeon Fill(char c)
+        {
+            for (var i = 0; i < Width * Height; i++)
+                _tiles[i] = c;
+            return this;
+        }
+
+        public Dungeon Clear()
+        {
+            return Fill(' ');
+        }
+
         public IEnumerator<char> GetEnumerator()
         {
-            for (var x = 0; x < Width; x++)
-                for (var y = 0; y < Height; y++)
-                    yield return this[x, y];
+            for (var i = 0; i < Width * Height; i++)
+                yield return _tiles[i];
         }
 
         IEnumerator IEnumerable.GetEnumerator()

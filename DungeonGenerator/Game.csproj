@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dungeon.cs" />
     <Compile Include="Generator\DungeonGenerator.cs" />
     <Compile Include="Generator\Strategy\BSPGeneratorStrategy.cs" />
     <Compile Include="Generator\Strategy\Models\Coord.cs" />
@@ -52,6 +51,7 @@
     <Compile Include="Generator\Strategy\SimpleGeneratorStrategy.cs" />
     <Compile Include="Generator\Strategy\EmptyGeneratorStrategy.cs" />
     <Compile Include="Generator\Strategy\IStrategy.cs" />
+    <Compile Include="Models\Dungeon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

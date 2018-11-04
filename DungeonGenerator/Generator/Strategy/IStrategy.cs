@@ -1,4 +1,6 @@
-﻿namespace Game.Generator.Strategy
+﻿using Game.Models;
+
+namespace Game.Generator.Strategy
 {
     public interface IStrategy
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Models;
 
 namespace Game.Generator.Strategy
 {

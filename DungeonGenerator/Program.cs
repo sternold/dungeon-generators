@@ -1,6 +1,8 @@
 using Game.Generator;
 using Game.Generator.Strategy;
 using System;
+using System.Linq;
+using Game.Models;
 
 namespace Game
 {
@@ -17,10 +19,10 @@ namespace Game
                 generator.Strategy = new EmptyGeneratorStrategy();
                 Draw(generator.Generate(Console.WindowWidth, Console.WindowHeight));
                 Console.ReadLine();
-                generator.Strategy = new NaturalDungeonStrategy(1024);
+                generator.Strategy = new NaturalDungeonStrategy();
                 Draw(generator.Generate(Console.WindowWidth, Console.WindowHeight));
                 Console.ReadLine();
-                generator.Strategy = new SimpleGeneratorStrategy(16);
+                generator.Strategy = new SimpleGeneratorStrategy();
                 Draw(generator.Generate(Console.WindowWidth, Console.WindowHeight));
                 Console.ReadLine(); 
             }
@@ -37,6 +39,7 @@ namespace Game
                     Console.Write(dungeon[x, y]);
                 }
             }
+            Console.WriteLine("floors: " + dungeon.Count(c => c == '.'));
         }
     }
 }
